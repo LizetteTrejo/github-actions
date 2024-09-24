@@ -3,14 +3,20 @@ name: Test
 on: [push]
 
 jobs:
-  test-build:
-    runs-on:
+local-action:
+  runs-on: ubuntu latest
+
+  strategy:
+  matrix: #Hacer varias pruebas al mismo tiempo
+    php-version: [7.4, 8.0, 8.1]
 
     steps:
       - name: Checkout code
-        run: actions/checkout@v2
+        uses: actions/checkout@v3 #Hecho por GH Creations
 
-      - name: ls
-        uses: ./.github/actions/my-action
-        with:
-          message: "Lizette"
+      - name: Set Up PHP
+        uses: shivammathur/setup-php@v2 #Hecho por un creador
+
+      - name: Run Script
+        run: | #Pipe
+        echo "PHP VERSION"
