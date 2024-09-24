@@ -10,6 +10,6 @@ jobs:
     env:
       MY_VAR: Mi variable de entorno
 
-    steps:
+    steps: #contextos: Manera de obtener informacion
       - name: Test
-        run: echo "Valor: $"
+        run: echo "Valor: ${{vars.MY_VARIABLE_2}}"
