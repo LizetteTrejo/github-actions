@@ -1,54 +1,25 @@
 name: Hola mundo
 
 #primer evento
-on: #el evento se hará cuando se haga push y pull request en las ramas main
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs: #se ejecutan dentro de un servidor
-  hola:
-    runs-on: ubuntu-latest #definirlo en cada job
-
-    steps: #permiten realizar acciones
-    - name: Hola Mundo
-      run: echo "Hola Mundo"
-
-    - name: touch file
-      run: touch hola.txt
-
-    - name: Set text
-      run: echo "Hola Mundo" >> hola.txt #redirigir la salida a hola.txt
-
-    - name: Read file
-      run: cat hola.txt
-  other:
+on: [push] #el evento se hará cuando se haga push
+  
+jobs:
+  say-hello:
     runs-on: ubuntu-latest
-    needs: [hola]
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: example
+        ports:
+          - 3306:3306
+
+        redis:
+          image: redis
+          ports:
+            - 6379:6379
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4.1.7
-            
-    - name: LS
-      run: ls -al
-
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v4.0.4
-      with:
-        node-version: latest
-    
-    - name: node version #se necesita node para hacer tests
-      run: node --version
-
-    -name: PHP
-      uses: shivammathur/setup-php@v2
-
-    - name: node version
-      run: php --version
-      
-          
-
+      - name: Test
+        run: ls
