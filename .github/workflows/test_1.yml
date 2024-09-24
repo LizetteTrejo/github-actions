@@ -11,10 +11,11 @@ jobs:
       MY_VAR: Mi variable de entorno
 
     steps: #contextos: Manera de obtener informacion
-      - name: Test
-        run: echo "Valor: ${{vars.MY_VARIABLE_2}}"
+      - name:  Ls
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{secrets.SSH_KEY}}" >> ~/.ssh/id.rsa
+          chmod 600 ~/.ssh/id.rsa
+          ssh-keyscan -H 127.0.1.1 ~/.ssh/known_hosts
 
-      - name: My secret #Elementos secretos, no se muestran, almacenan informacion sensible
-        run: echo "Secret: ${{secrets.MY_SECRET}}"
-
-      - name: 
+          cat ~/.ssh/know_hosts
