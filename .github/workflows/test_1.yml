@@ -1,0 +1,12 @@
+name: Hola mundo
+
+#primer evento
+on: [push] #el evento se hará cuando se haga push
+
+jobs: #se ejecutan dentro de un servidor
+  hola:
+    runs-on: ubuntu-latest
+
+    steps: #permiten realizar acciones
+    - name: Hola Mundo
+      run: echo "Hola Mundo"
