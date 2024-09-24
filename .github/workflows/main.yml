@@ -20,6 +20,6 @@ local-action:
           php-version: ${{matrix.php-version}}
 
       - name: Run script
-        run: | 
-        echo "PHP VERSION ${{matrix.php-version}}"
-        php -v
+        run: |
+         echo "PHP VERSION ${{matrix.php-version}}"
+         php -v
