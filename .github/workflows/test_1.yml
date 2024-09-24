@@ -14,8 +14,4 @@ jobs:
       - name:  Ls
         run: |
           mkdir -p ~/.ssh
-          echo "${{secrets.SSH_KEY}}" >> ~/.ssh/id.rsa
-          chmod 600 ~/.ssh/id.rsa
-          ssh-keyscan -H 127.0.1.1 ~/.ssh/known_hosts
-
-          cat ~/.ssh/know_hosts
+          echo "${{secrets.SSH_KEY}}"
