@@ -1,5 +1,2 @@
 name: Hola mundo
 
-#primer evento
-on: [push] #el evento se hará cuando se haga push
-  
