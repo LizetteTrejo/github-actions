@@ -18,5 +18,5 @@ local-action:
         uses: shivammathur/setup-php@v2 #Hecho por un creador
 
       - name: Run Script
-        run: | #Pipe
+        run: | #Pipe |
         echo "PHP VERSION"
