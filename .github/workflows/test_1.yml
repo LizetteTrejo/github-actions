@@ -38,8 +38,17 @@ jobs: #se ejecutan dentro de un servidor
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4.0.4
+      with:
+        node-version: latest
     
     - name: node version #se necesita node para hacer tests
       run: node --version
+
+    -name: PHP
+      uses: shivammathur/setup-php@v2
+
+    - name: node version
+      run: php --version
+      
           
 
