@@ -24,5 +24,4 @@ jobs: laravel-test:
           php-version: 8.2
           extensions: mbstring, bcmath, pdo, pdo_mysql
 
-      - name: Install packages
-        run: composer install --no-interaction
+     
