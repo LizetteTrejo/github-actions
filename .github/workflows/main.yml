@@ -16,7 +16,10 @@ local-action:
 
       - name: Set Up PHP
         uses: shivammathur/setup-php@v2 #Hecho por un creador
+        with:
+          php-version: ${{matrix.php-version}}
 
       - name: Run Script
         run: | #Pipe |
-        echo "PHP VERSION"
+        echo "PHP VERSION ${{matrix.php-version}}"
+        php -v
