@@ -1,0 +1,14 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test-build:
+    runs-on:
+
+    steps:
+      - name: Checkout
+        run: actions/checkout@v2
+
+      - name: LS
+        run: ls -al
