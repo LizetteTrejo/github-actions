@@ -1,7 +1,13 @@
 name: Hola mundo
 
 #primer evento
-on: [push] #el evento se hará cuando se haga push
+on: #el evento se hará cuando se haga push y pull request en las ramas main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs: #se ejecutan dentro de un servidor
   hola:
