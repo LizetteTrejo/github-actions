@@ -3,15 +3,3 @@ name: Hola mundo
 #primer evento
 on: [push] #el evento se hará cuando se haga push
   
-jobs:
-  say-hello:
-    runs-on: ubuntu-latest
-
-    env:
-      MY_VAR: Mi variable de entorno
-
-    steps: #contextos: Manera de obtener informacion
-      - name:  Ls
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{secrets.SSH_KEY}}"
